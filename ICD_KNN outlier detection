@@ -1,0 +1,19 @@
+# Inter-cluster distance can be used for outlier detection in a clustering algorithm by identifying data points that have a large distance to the nearest cluster.
+These data points are considered outliers because they are not similar to any of the clusters formed by the algorithm.
+------------------------------------------------------------------------------------------------------------------------------
+function outlierDetection(dataPoints, clusters, distanceFunction)
+    outliers = []
+    for each point in dataPoints
+        minDistance = infinity
+        for each cluster in clusters
+            for each point2 in cluster
+                distance = distanceFunction(point, point2)
+                if distance < minDistance
+                    minDistance = distance
+            end for
+        end for
+        if minDistance > threshold
+            outliers.append(point)
+    end for
+    return outliers
+end function
