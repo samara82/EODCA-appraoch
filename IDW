@@ -1,0 +1,11 @@
+function IDW(dataPoints, interpolationPoint, weightPower)
+    totalWeight = 0
+    weightedValue = 0
+    for each point in dataPoints
+        distance = calculateDistance(point, interpolationPoint)
+        weight = 1 / distance^weightPower
+        weightedValue += point.value * weight
+        totalWeight += weight
+    end for
+    return weightedValue / totalWeight
+end function
