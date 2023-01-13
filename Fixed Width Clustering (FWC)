@@ -1,0 +1,11 @@
+function FWC(dataPoints, width)
+    clusters = {}
+    for each point in dataPoints
+        index = calculateIndex(point, width)
+        if index not in clusters
+            clusters[index] = []
+        end if
+        clusters[index].append(point)
+    end for
+    return clusters
+end function
